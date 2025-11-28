@@ -1,0 +1,23 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import files.payloadData;
+import files.reUsableMethods;
+import io.restassured.path.json.JsonPath;
+
+public class testNgUse {
+	//Use TestNG for execution
+	@Test
+	public static void calculateTotal() {
+		JsonPath courseDetails = reUsableMethods.rawtoJson(payloadData.courseDetails());
+		int count = courseDetails.getInt("courses.size()");
+		int totalAmount = 0;
+		for(int index = 0; index < count; index++) {
+			
+			totalAmount = totalAmount + (courseDetails.getInt("courses["+index+"].price") * courseDetails.getInt("courses["+index+"].copies"));
+		}
+		System.out.println("Actual total amount : "+totalAmount);
+		Assert.assertEquals(totalAmount, courseDetails.getInt("dashboard.purchaseAmount"));
+	}
+
+}

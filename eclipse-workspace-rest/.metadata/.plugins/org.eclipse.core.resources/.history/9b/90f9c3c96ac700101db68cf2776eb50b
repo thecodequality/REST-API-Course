@@ -1,0 +1,25 @@
+package test;
+
+import static io.restassured.RestAssured.given;
+
+import org.testng.annotations.Test;
+
+import files.payloadData;
+import files.reUsableMethods;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+public class libraryApi {
+	
+	@Test
+	public void addBook() {
+		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		String response = given().log().all().header("Content-Type","text/plain")
+						.body(payloadData.addPlacePayload())
+						.when().post("/Library/Addbook.php")
+						.then().log().all().statusCode(200)
+						.extract().response().asString();
+		JsonPath addplace = reUsableMethods.rawtoJson(response);
+		System.out.println("Book ID created is : "+addplace.getString("ID"));
+	}
+}

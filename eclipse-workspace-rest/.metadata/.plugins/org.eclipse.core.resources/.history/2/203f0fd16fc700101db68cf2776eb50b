@@ -1,0 +1,47 @@
+package test;
+
+import static io.restassured.RestAssured.given;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import files.RandomValues;
+import files.payloadData;
+import files.reUsableMethods;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
+public class libraryApi {
+	
+	@Test(dataProvider = "BookData")
+	public void addBook(String isbn, String aisle) {
+		//1.Dynamically build JSON pay load with external data inputs
+		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		
+		//Add book
+		String response = given().header("Content-Type","text/plain")
+						.body(payloadData.addPlacePayload(isbn,aisle))
+						.when().post("/Library/Addbook.php")
+						.then().statusCode(200)
+						.extract().response().asString();
+		JsonPath addplace = reUsableMethods.rawtoJson(response);
+		String bookId = addplace.getString("ID");
+		System.out.println("Book ID created is : "+bookId);
+		
+		
+		//Delete book
+		String delete = given().header("Content-Type","text/plain")
+						.body()
+	}
+	
+	@DataProvider(name = "BookData")
+	public Object[][] dataSet() {
+		//array = collection of elements
+		//multidimensional array = collection of arrays
+		
+		return new Object[][] {{RandomValues.generateRandomString(3),RandomValues.generateRandomNumber(4)}, 
+			{RandomValues.generateRandomString(3),RandomValues.generateRandomNumber(4)},
+			{RandomValues.generateRandomString(3),RandomValues.generateRandomNumber(4)}};
+	}
+	
+}

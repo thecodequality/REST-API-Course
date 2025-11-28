@@ -1,0 +1,18 @@
+import files.payloadData;
+import files.reUsableMethods;
+import io.restassured.path.json.JsonPath;
+
+public class complexJson {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		JsonPath courseDetails = reUsableMethods.rawtoJson(payloadData.courseDetails());
+		
+		//1. Print No of courses returned by API
+		//Note: getInt() method will only on arrays
+		int count = courseDetails.getInt("courses.size()");
+		System.out.println("Number of courses : "+count);
+	}
+
+}

@@ -1,0 +1,15 @@
+package files;
+
+import org.apache.commons.lang3.RandomStringUtils;
+
+public class RandomValues {
+
+		
+		@SuppressWarnings("deprecation")
+		public static String generateRandomString(int length) {
+			return RandomStringUtils.randomAlphanumeric(length);
+		}
+
+
+
+}
