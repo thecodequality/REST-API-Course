@@ -1,65 +1,77 @@
-# =============================
-# Java Build Files
-# =============================
-*.class
-*.jar
-*.war
-*.ear
-target/
-out/
-
-# =============================
-# Maven
-# =============================
-.mvn/
-!/.mvn/wrapper/maven-wrapper.jar
-dependency-reduced-pom.xml
-
-# =============================
-# Eclipse IDE
-# =============================
+# Eclipse workspace & project
+.metadata/
 .project
 .classpath
 .settings/
+eclipse-workspace-rest/.metadata/
+
+# Build outputs
 bin/
-.tmp/
-.recommenders/
+target/
+build/
+out/
 
-# =============================
-# Logs
-# =============================
-*.log
-logs/
-report.log
+# Java class files
+*.class
 
-# =============================
-# Reports (TestNG, Allure, Extent)
-# =============================
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+release.properties
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
 surefire-reports/
 test-output/
+
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Reports (TestNG, Allure, Extent)
 allure-results/
 allure-report/
 extent-report/
 reports/
 
-# =============================
-# OS Files
-# =============================
+# OS files
 .DS_Store
 Thumbs.db
 
-# =============================
-# Temporary Files
-# =============================
+# Logs and temp
+*.log
+logs/
 *.tmp
 *.temp
+report.log
 
-# =============================
-# Sensitive Config Files
-# =============================
+# Sensitive / env
 .env
-*.properties
-config/*.properties
-application.properties
-secrets/
 credentials.json
+secrets/
+application.properties
+config/*.properties
+*.properties
+
+# Test coverage
+coverage/
+jacoco.exec
+*.lcov
+
+# Libraries (if you have libs checked in, consider removing and using Maven/Gradle)
+lib/*.jar
+
+# Others
+*.bak
+*.swp
+.tmp/
+.recommenders/
