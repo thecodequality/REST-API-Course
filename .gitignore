@@ -1,76 +1,49 @@
-# Eclipse workspace & project
+#########################
+# Eclipse Ignore
+#########################
 .metadata/
-.project
-.classpath
 .settings/
-eclipse-workspace-rest/.metadata/
-
-# Build outputs
 bin/
-target/
-build/
-out/
-
-# Java class files
-*.class
-
-# Maven
-.mvn/
-!/.mvn/wrapper/maven-wrapper.jar
-dependency-reduced-pom.xml
-release.properties
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-surefire-reports/
-test-output/
-
-# Gradle
-.gradle/
-build/
-
-# IDEs
-.idea/
-*.iml
-*.ipr
-*.iws
-.vscode/
-
-# Reports (TestNG, Allure, Extent)
-allure-results/
-allure-report/
-extent-report/
-reports/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs and temp
-*.log
-logs/
+tmp/
 *.tmp
-*.temp
-report.log
-
-# Sensitive / env
-.env
-credentials.json
-secrets/
-application.properties
-config/*.properties
-*.properties
-
-# Test coverage
-coverage/
-jacoco.exec
-*.lcov
-
-# Libraries (if you have libs checked in, consider removing and using Maven/Gradle)
-lib/*.jar
-
-# Others
 *.bak
 *.swp
-.tmp/
-.recommenders/
+*.swo
+rebuild_state
+.loadpath
+
+# Prevent workspace from getting into Git
+eclipse-workspace-rest/
+*/.metadata/
+*/.plugins/
+*/org.eclipse.*
+
+#########################
+# Java / Maven
+#########################
+target/
+*.class
+*.jar
+*.log
+
+#########################
+# Test outputs
+#########################
+test-output/
+surefire-reports/
+reports/
+allure-results/
+allure-report/
+
+#########################
+# IDE ignores
+#########################
+.idea/
+.vscode/
+*.iml
+
+#########################
+# OS files
+#########################
+.DS_Store
+Thumbs.db
