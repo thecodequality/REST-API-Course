@@ -1,49 +1,76 @@
-#########################
-# Eclipse Ignore
-#########################
+# Eclipse workspace & project
 .metadata/
+.project
+.classpath
 .settings/
+eclipse-workspace-rest/.metadata/
+
+# Build outputs
 bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*.swo
-rebuild_state
-.loadpath
-
-# Prevent workspace from getting into Git
-eclipse-workspace-rest/
-*/.metadata/
-*/.plugins/
-*/org.eclipse.*
-
-#########################
-# Java / Maven
-#########################
 target/
-*.class
-*.jar
-*.log
+build/
+out/
 
-#########################
-# Test outputs
-#########################
-test-output/
+# Java class files
+*.class
+
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
 surefire-reports/
-reports/
+test-output/
+
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Reports (TestNG, Allure, Extent)
 allure-results/
 allure-report/
+extent-report/
+reports/
 
-#########################
-# IDE ignores
-#########################
-.idea/
-.vscode/
-*.iml
-
-#########################
 # OS files
-#########################
 .DS_Store
 Thumbs.db
+
+# Logs and temp
+*.log
+logs/
+*.tmp
+*.temp
+report.log
+
+# Sensitive / env
+.env
+credentials.json
+secrets/
+application.properties
+config/*.properties
+*.properties
+
+# Test coverage
+coverage/
+jacoco.exec
+*.lcov
+
+# Libraries (if you have libs checked in, consider removing and using Maven/Gradle)
+lib/*.jar
+
+# Others
+*.bak
+*.swp
+.tmp/
+.recommenders/
