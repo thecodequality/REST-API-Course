@@ -81,4 +81,9 @@ public class payloadData {
 		return new String(Files.readAllBytes(Paths.get(filePath)));
 	}
 
+	public static String JiraCreateIssuePayload() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
