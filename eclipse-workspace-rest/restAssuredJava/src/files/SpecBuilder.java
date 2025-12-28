@@ -24,4 +24,18 @@ public class SpecBuilder {
 				.expectContentType(ContentType.JSON)
 				.build();
 	}
+	
+	public static RequestSpecification loginRequestSpec() {
+		return new RequestSpecBuilder()
+				.setBaseUri("https://rahulshettyacademy.com")
+				.setContentType(ContentType.JSON)
+				.build();
+	}
+	
+	public static RequestSpecification authorizationSpec() {
+		return new RequestSpecBuilder()
+				.setBaseUri("https://rahulshettyacademy.com")
+				.addHeader("Authorization", GlobalData.authorizationToken)
+				.build();
+	}
 }
