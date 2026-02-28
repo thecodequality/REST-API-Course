@@ -85,5 +85,13 @@ public class payloadData {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static String graphQLQueryPayload(int locationId, int characterId, int episodeId) {
+		return "{\"query\":\"query ($locationId: Int!, $characterId: Int!, $episodeId: Int!) {\\n  location(locationId: $locationId) {\\n    name\\n    type\\n    dimension\\n  }\\n  character(characterId: $characterId) {\\n    name\\n    type\\n    status\\n    species\\n    gender\\n    origin {\\n      id\\n      name\\n      type\\n      dimension\\n    }\\n    location {\\n      name\\n      type\\n      dimension\\n    }\\n    episodes {\\n      id\\n      name\\n      air_date\\n      episode\\n    }\\n  }\\n  episode(episodeId: $episodeId) {\\n    name\\n    air_date\\n  }\\n}\\n\",\"variables\":{\"locationId\":"+locationId+",\"characterId\":"+characterId+",\"episodeId\":"+episodeId+"}}";
+	}
+	
+	public static String graphQLMutationPayload(String locationName, String characterName, String episodeName) {
+		return "{\"query\":\"mutation ($locationName: String!, $characterName: String!, $episodeName: String!) {\\n  createLocation(location: {name: $locationName, type: \\\"SouthZone\\\", dimension: \\\"123\\\"}) {\\n    id\\n  }\\n  createCharacter(character: {name: $characterName, type: \\\"Main\\\", status: \\\"Alive\\\", species: \\\"Man\\\", gender: \\\"Male\\\", image: \\\"https://dummyimage.com/200\\\", originId: 28527, locationId: 28527}) {\\n    id\\n  }\\n  createEpisode(episode: {name: $episodeName, air_date: \\\"12-12-2022\\\", episode: \\\"12\\\"}) {\\n    id\\n  }\\n}\\n\",\"variables\":{\"locationName\":\""+locationName+"\",\"characterName\":\""+characterName+"\",\"episodeName\":\""+episodeName+"\"}}";
+	}
 
 }
