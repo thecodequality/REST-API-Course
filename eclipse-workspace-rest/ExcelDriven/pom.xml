@@ -20,6 +20,11 @@
 	    <version>5.5.1</version>
 	    <scope>compile</scope>
 	</dependency>
-  	
+
+	<dependency>
+		<groupId>restAssuredJava</groupId>
+		<artifactId>restAssuredJava</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
   </project>

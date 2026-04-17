@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataDriven {
 
-	public static void main(String[] args) throws IOException {
+	public static ArrayList<Object> getExcelData(String sheetName, String rowName) throws IOException {
 		// TODO Auto-generated method stub
 		
 		String excelPath = "C:\\Users\\Administrator\\Downloads\\REST Assured API\\ExcelData.xlsx";
@@ -23,7 +23,7 @@ public class DataDriven {
 		int count = workbook.getNumberOfSheets();
 		
 		for(int index = 0;index < count;index++) {
-			if(workbook.getSheetName(index).equalsIgnoreCase("Excel")) {
+			if(workbook.getSheetName(index).equalsIgnoreCase(sheetName)) {
 				XSSFSheet workSheet = workbook.getSheetAt(index);
 				
 				//Identify required column name by scanning entire first row
@@ -43,7 +43,7 @@ public class DataDriven {
 				//Iterate through the required column and fetch all values in that and print it
 				 while(rows.hasNext()) {
 					 Row nextRow = rows.next();
-					 if(nextRow.getCell(column).getStringCellValue().equalsIgnoreCase("Purchase")) {
+					 if(nextRow.getCell(column).getStringCellValue().equalsIgnoreCase(rowName)) {
 						 Iterator<Cell> cellValue = nextRow.cellIterator();
 						 while(cellValue.hasNext()) {
 							 Cell type = cellValue.next();
@@ -61,6 +61,11 @@ public class DataDriven {
 		System.out.println(excelValue.get(1));
 		System.out.println(excelValue.get(2));
 		System.out.println(excelValue.get(3));
+		
+		workbook.close();          // ← always close workbook
+	    inputStream.close();       // ← always close stream
+	    return excelValue; 
+		
 
 	}
 
